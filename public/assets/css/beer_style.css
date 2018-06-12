@@ -1,0 +1,230 @@
+ol { 
+  counter-reset: item;
+  list-style-type: none;
+}
+
+/* li { 
+  display: block; 
+
+} */
+
+li:before { 
+  content: counter(item) "  "; 
+  counter-increment: item 
+}
+
+/* Chrome, Safari */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+  border: 1px black solid;
+}
+::-webkit-scrollbar-track-piece  {
+  background-color: #f8d047;
+}
+  ::-webkit-scrollbar-thumb:vertical {
+  height: 30px;
+  background-color: #0A4C95;
+}
+  
+body {
+  /* background-color: #f8d047; */
+  background-color:#000;
+  background-image: url("../img/gold-fields.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+#beer-add-new {
+  margin-top: 10px;
+}
+
+.beer-btn {
+  background-color: #f8d047;
+  color:  #cd2b1d;
+  border: 1px #cd2b1d solid;
+  display: inline;
+  /* float: left; */
+  clear: none;
+  outline: none;
+  margin: 0px 1px;
+  border-radius: 5px;
+}
+
+.beer-btn:hover {
+  background-color: #cd2b1d;
+  color: #f8d047;
+  /* float: left; */
+  /* border: none; */
+}
+
+.beer-btn:active {
+  color: #cd2b1d;
+   background-color: #f8d047;
+  /* float: left; */
+  border: none;
+}
+
+.beer-btn-trash {
+  background-color: #f8d047;
+  color:  #cd2b1d;
+  border: none;
+  display: inline;
+  /* float: left; */
+  clear: none;
+  outline: none;
+  margin: 0px 1px;
+  border-radius: 5px;
+}
+
+.beer-btn-trash:hover {
+  color: #f8d047;
+  background-color:  #cd2b1d;
+  border: none;
+  /* display: inline; */
+  /* float: left; */
+  /* clear: none; */
+  /* outline: none; */
+  /* margin: 0px 1px; */
+  /* border-radius: 5px; */
+}
+
+/* .beer-btn-label {
+  display: inline;
+  float: right;
+  clear: none;
+} */
+
+.beer-input {
+  height: 1.5em;
+  font-size: 1em;
+  font-family: 'UnifrakturMaguntia', cursive;
+  padding: 5px;
+  margin: 5px;
+  color: white;
+  text-align: center;
+  border-radius: 5px;
+  border: 1px #cd2b1d solid;
+  text-shadow: none;
+  background-color: black;
+}
+
+.beer-list-title {
+  text-align: center;
+  font-family: 'UnifrakturMaguntia', cursive;
+  margin: 2px auto;
+  font-size: 2em;
+}
+
+#beers-tried, #beers-untried {
+  text-align: left;
+  border: 6px #cd2b1d double;
+  display: inline-block;
+  box-sizing: border-box;
+  top: 0;
+  width:49%;
+  height: 356px;
+  overflow: scroll;
+  margin: auto;
+  vertical-align: top;
+  font-size: 1.2em;
+  padding: 10px;
+}
+
+#beer-mug {
+  width: 100px;
+  float: left;
+}
+
+#beer-new-name {
+  height: 2em;
+  border: 1px #cd2b1d double;
+  display: block;
+  margin:10px auto;
+  /* background-color: green; */
+}
+
+
+.big-letter {
+  /* replaces capitals with large lower case letters where it improves readability */
+  font-size: 1.5em;
+}
+
+#container {
+  background-color: #f8d047;
+  width: 768px;
+  margin: auto;
+  text-align: center;
+  padding: 10px;
+  border: 8px black solid;
+  border-top: none;
+
+}
+
+.delete-form {
+  display: inline;
+}
+
+.err-msg {
+  height: 0px;
+  font-size: 1.2em;
+  color: red;
+  padding: 2px;
+  /* border: 4px red double; */
+  margin: auto;
+  text-emphasis: open;
+  font-family: 'Didact Gothic', sans-serif;
+  -webkit-transition: height 0.5s; /* Safari */
+    transition: height 0.5s;
+}
+
+header {
+  overflow: auto;
+  text-align: center;
+  width: 768px;
+  margin: auto;
+  padding: 10px;
+  margin-top: 30px;
+  /* color: firebrick; */
+  background-color: #f8d047;
+  border: 8px black solid;
+  border-bottom: none;
+}
+
+header h1 {
+  font-family: 'UnifrakturMaguntia', cursive;
+  font-size: 3em;
+  color: #cd2b1d;
+  text-shadow: #000 1px 1px;
+  margin: 0px auto;
+  padding-bottom: 0px;
+  display: inline;
+}
+
+header h2 {
+  font-family: 'UnifrakturMaguntia', cursive;
+  font-size: 2em;
+  margin-top: 0px;
+  padding-top: 0px; 
+  display: inline;
+}
+
+#header-title {
+  font-size: 0.7em;
+}
+
+ul {
+  list-style-type: none;
+  /* margin: 0; */
+  /* padding: 0; */
+}
+
+/* #beers-untried {
+  border: 2px #cd2b1d solid;
+  display: inline-block;
+  width:49%;
+  top: 0;
+  
+} */
+

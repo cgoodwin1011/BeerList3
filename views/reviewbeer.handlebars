@@ -1,0 +1,29 @@
+<div id="everything">
+<header>
+  <img id="beer-mug" src="assets/img/krug_hell_0.png" alt="beer mug">
+  <h1><span class="big-letter">m</span>eine <span class="big-letter">B</span>ierliste</h1><h2><span id="header-title">&nbsp;(<span class="big-letter">m</span>y Beer List)<br>Life is too short to drink bad beer twice!</h2>
+</header>
+<div id="container">
+  <div id="aesthic box"></div>
+  <dir id="reviewFormHolder">
+    <form id="reivew-form" name="reviewForm" method="POST" action='reviewBeer'>
+      {{!-- beer_name, brewery, genre, abv, review, triedIt, rating,  --}}
+      <input id="beer-name" type="text">
+      <input id="beer-brewery" type="text">
+      <input id="beer-genre" type="text">
+      <input id="beer-abv" type="text">
+      <input id="beer-review" type="text">
+      <input id="beer-rating" type="text">
+    </form>
+  </dir>
+  
+  
+  <div id="beer-add-new">
+    <h1 class="beer-list-title">add a beer to your list</h1>
+    <form method='POST' action='reviewbeer'>
+      <input id="beer-new-name" name="newBeerName" type="text">
+      <button type="submit">Add New Beer</button>
+    </form>
+  </div>
+</div>
+</div>
