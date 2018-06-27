@@ -8,13 +8,11 @@ var Beer = require("../models/beers.js");
 // app.engine("handlebars", exphbs({defaultLayout: "main"}));
 // app.set("view engine", "handlebars");
 
-
 // Routes
 module.exports = function (app) {
 
   // show all beers on home page
   app.get("/", function (req, res) {
-    // console.log("hello");
     // res.render("reviewbeer");
     Beer.findAll({})
       .then(function (beerData) {
@@ -39,17 +37,14 @@ module.exports = function (app) {
   });
 
   app.post("/api/newBeer", function (req, res) {
-    console.log("landed");
-    console.log(req.body.beer_name, req.body.brewery);
     Beer.create({
       beer_name: req.body.beer_name,
       brewery: req.body.brewery
-      // genre: null, abv: null, review: null, triedIt: false, rating: null
+      
     }).then(function () {
-      console.log("back!");
       res.redirect("/");
-    }).catch(function(err) {
-      console.log("err");
+    }).catch(function (err) {
+      console.log("err: ", err);
     });
   });
 
@@ -77,27 +72,28 @@ module.exports = function (app) {
   });
 
   app.get("/reviewbeer", function (req, res) {
-    console.log("in /reviewbeer");
-    res.render("reviewbeer", function(err, html) {
-      console.log(html);
-      res.send(html);
-
-    });
-/*    res.render("reviewbeer", {biff: "tannen"}, function(req, response) {
-      console.log(response);
-      res.send(response);
-      // console.log(err);
-      // console.log(req);
-      console.log("end of res render");
-      // return res;
-    });
-*/    console.log("out of res render -- async");
-    // res.end()
-    // res.redirect("/reviewBeer");
+    
+    var hbsCandy = {
+      beername: req.query.newBeerName,
+      brewer: req.query.newBeerBrewer
+    };
+    res.render("reviewbeer", hbsCandy);
   });
-  
-  app.post("/api/reviewbeer", function (req, res) {
-    // console.log("req.body is \n", req.body);
-    res.send(req.body);
+
+  app.post("/reviewbeer", function (req, res) {
+    console.log("in POST rev beer")
+    console.log("req.body is \n", req.body);
+    // res.end();
+
+    // genre: null, abv: null, review: null, triedIt: false, rating: null
+    Beer.create({
+      beer_name: req.body.beerName,
+      brewery: req.body.beerBrewery,
+      genre: req.body.beerGenre,
+      abv: req.body.beerAbv,
+      triedIt: true,
+      rating: req.body.beerRating,
+      review: req.body.beerReview
+    });
   });
 };

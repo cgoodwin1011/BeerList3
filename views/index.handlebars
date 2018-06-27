@@ -1,23 +1,11 @@
 <div id="everything">
-  <header>
-    <img id="beer-mug" src="assets/img/krug_hell_0.png" alt="beer mug">
-    <h1>
-      <span class="big-letter">m</span>eine
-      <span class="big-letter">B</span>ierliste</h1>
-    <h2>
-      <span id="header-title">&nbsp;(
-        <span class="big-letter">m</span>y Beer List)
-        <br>Life is too short to drink bad beer twice!</h2>
-  </header>
   <div id="container">
     <div id="beers-untried" class="column">
       <h1 class="beer-list-title">to do list</h1>
       <ol>
         {{#each todoBeer}}
-        <li>
-          |&nbsp;&nbsp;{{this.brewery}}, {{this.beer_name}}
-          <form id="beer-add-new" action="api/triedBeer/{{this.id}}?_method=PUT" method='POST'>
-            <button class="beer-btn" type="submit" data-status="tried" data-id={{this.id}}>
+        <li>|&nbsp;&nbsp;{{this.brewery}}, {{this.beer_name}}
+          <form id="beer-add-new" action="api/triedBeer/{{this.id}}?_method=PUT" method='POST'><button class="beer-btn" type="submit" data-status="tried" data-id={{this.id}}>
               <span class="beer-btn-label">
                 <i class="fas fa-beer"></i>
               </span>
@@ -47,102 +35,100 @@
       </ol>
     </div>
 
-    {{!--
-    <div id="beer-add-new"></div>
-    <h1 class="beer-list-title">add a beer to your list</h1>
-    <form method='POST' action='api/new'>
-      <input id="beer-new-name" name="newBeerName" type="text">
-      <button type="submit">Add New Beer</button>
-    </form>
-  </div> --}}
+{{!-- <div class="tooltip">Hover over me
+  <span class="tooltiptext">Tooltip text</span>
+</div> --}}
 
-  <div id="add-new-beer">
-    <h1 class="beer-list-title">add a beer to your to-do list or review it</h1>
-    <p id="err-msg-holder" class="err-msg"></p>
-    {{!--
-    <form method='POST' action='api/newBeer'> --}}
-      <form>
-        <input id="new-beer-brewery" class="beer-input" name="newBeerBrewer" type="text" placeholder="Brewer*">
-        <input id="new-beer-name" class="beer-input" name="newBeerName" type="text" placeholder="Beer Name">
-        <br> {{!--
-        <button id="add-it" type="submit" class="beer-btn">Add Beer</button> --}}
-        <button id="add-it" class="beer-btn">Add Beer</button>
-        <button id="review-it" class="beer-btn">Review Beer</button>
-        <p>* for mass market beers (if you must), you may use the manufacturer's name instead of the brewer's.</p>
-      </form>
-      <div id="logging">
 
-      </div>
-  </div>
+    <div id="add-new-beer">
+      <h1 class="beer-list-title">add a beer to your to-do list or review it</h1>
+      <p id="err-msg-holder" class="err-msg"></p>
+        <form id="form-add-new-beer" autocomplete="off">
+          <input id="new-beer-brewery" class="beer-input" class="tooltip" name="newBeerBrewer" type="text" placeholder="Brewer*">
+          <span class="tooltiptext">Tooltip text</span>
+          <input id="new-beer-name" class="beer-input" name="newBeerName" type="text" placeholder="Beer Name">
+          {{!--
+          <button id="add-it" type="submit" class="beer-btn">Add Beer</button> --}}
+          <button id="add-it" class="beer-btn beer-btn-bigger">Add Beer</button>
+          <button id="review-it" class="beer-btn beer-btn-bigger" formaction="/reviewbeer" method="GET">Review Beer</button>
+          <p>* for mass market beers (if you must), you may use the manufacturer's name instead of the brewer's.</p>
+        </form>
+        <div id="logging">
 
-  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-    crossorigin="anonymous"></script>
-  <script>
-    $("#add-it").on('click', function (req, res) {
-      event.preventDefault();
-      console.log("adding beer");
-      var beerName = $("#new-beer-name").val();
-      var brewery = $("#new-beer-brewery").val();
-      console.log(brewery, beerName);
-      // $("#add-it").css('background-color', 'yellow')
-      if (beerName == "" && brewery == "") {
-        $("#err-msg-holder").html("You must enter a brewery or a beer name.  Both cannot be empty. <i class='fas fa-times-circle closeCircle'></i>");
-        $("#err-msg-holder").css('height', '1.1em')
-      } else {
-        $.ajax({
-          type: "POST",
-          url: "/api/newBeer",
-          data: {
-            beer_name: beerName,
-            brewery: brewery
-          },
-          success: function (data) {
-            // $('.center').html(data);
-            console.log("success!");
-          }
-        }).then(() => location.reload());
-      }
-    }
-    );
+        </div>
+    </div>
 
-    $("#err-msg-holder").on('click', ".closeCircle", () => {
-      $("#err-msg-holder").html('');
-      $("#err-msg-holder").css('height', '0px')
-      // $("#err-msg-holder").css('visibility', 'hidden')
-    }
-    )
-
-    $("#review-it").on('click', function (req, res) {
-      event.preventDefault();
-      console.log("hello from review-it event attacher");
-      console.log("req in review is ", req);
-      var beerName = $("#new-beer-name").val();
-      var brewery = $("#new-beer-brewery").val();
-      $.ajax({
-        type: "GET",
-        url: "/reviewbeer",
-        data: {
-          beer_name: beerName,
-          brewery: brewery
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+      crossorigin="anonymous"></script>
+    <script>
+      $("#add-it").on('click', function (req, res) {
+        event.preventDefault();
+        console.log("adding beer");
+        var beerName = $("#new-beer-name").val();
+        var brewery = $("#new-beer-brewery").val();
+        console.log(brewery, beerName);
+        // $("#add-it").css('background-color', 'yellow')
+        if (beerName == "" && brewery == "") {
+          $("#err-msg-holder").html("You must enter a brewery or a beer name.  Both cannot be empty. <i class='fas fa-times-circle closeCircle'></i>");
+          $("#err-msg-holder").css('height', '1.1em')
+        } else {
+          $.ajax({
+            type: "POST",
+            url: "/api/newBeer",
+            data: {
+              beer_name: beerName,
+              brewery: brewery
+            },
+            success: function (data) {
+            }
+          }).then(() => location.reload());
         }
-        //,
-        //success: function (data) {
-        //  console.log("data is \n", data);
-        //  $('.center').html(data);
-        //  console.log("success at ajax.post!");
-          // res.render("reviewbeer", {});
-          // $.ajax({
-          //   type: "POST",
-          //   url: "/api/reviewBeer",
-          //   data: {
-          //     data: data
-          //   }
-          // });
-        //}
-    });
-    });
+      }
+      );
 
-  </script>
+      $("#err-msg-holder").on('click', ".closeCircle", () => {
+        $("#err-msg-holder").html('');
+        $("#err-msg-holder").css('height', '0px')
+        }
+      )
+/*
+      $("#review-it").on('click', function (req, res) {
+        event.preventDefault();
+        console.log("hello from review-it event attacher");
+        console.log("req in review-it is ", req);
+        var beerName = $("#new-beer-name").val();
+        var brewery = $("#new-beer-brewery").val();
+        
+        //${beername}&newBeerBrewer${brewery}`
 
-</div>
+           $.ajax({
+             type: "GET",
+             url: "/reviewbeer",
+             data: {
+               beer_name: beerName,
+               brewery: brewery
+             },
+             success: function (data) {
+               // location.href = "/reviewbeer"
+               console.log("data is \n", data);
+             }
+            
+        
+        //            //  $('.center').html(data);
+        //            //  console.log("success at ajax.post!");
+        //            // res.render("reviewbeer", {});
+        //            // $.ajax({
+        //            //   type: "POST",
+        //            //   url: "/api/reviewBeer",
+        //            //   data: {
+        //            //     data: data
+        //            //   }
+        //            // });
+        //          }
+                });
+      });
+*/
+    </script>
+
+  </div>
 </div>

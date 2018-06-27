@@ -1,3 +1,90 @@
+* {
+  box-sizing: border-box;
+  
+}
+
+::-webkit-input-placeholder {
+  color: #BBBBBB;
+  opacity: 1 !important; /* for older chrome versions. may no longer apply. */
+}
+
+:-moz-placeholder { /* Firefox 18- */
+  color: #BBBBBB;
+  opacity: 1 !important;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+  color: #BBBBBB;
+  opacity: 1 !important;
+}
+
+:-ms-input-placeholder {  
+ color: #BBBBBB;
+}
+
+#col1, #col3, #col4, #col5, #col6 {
+  opacity: 0%;
+  visibility: hidden;
+}
+
+#col1 {
+  width: 0px;
+}
+
+#col2 {
+  width: 40%;
+}
+
+.col-holder {
+  /* display: inline-block; */
+  width: 960px;
+  margin: auto;
+  text-align: center;
+}
+
+.col {
+  display: inline-block;
+  border: 1px black solid;
+  /* width: 15%; */
+  /* min-width: 100px; */
+  background-color: #f8d047;
+}
+
+.form-review {
+  text-align: left;
+  width: 100%;
+  /* background-color: blue; */
+}
+
+.form-holders {
+  padding: 10px;
+  width: 100%;
+}
+
+.side-left {
+  float: left;
+  width: 49%;
+  text-align: left;
+  /* background-color: green; */
+  /* padding-right: 10px */
+}
+
+.side-right {
+  float: right;
+  width: 49%;
+  /* background-color: green; */
+}
+
+.center-wide {
+  clear: both;
+  text-align: center;
+}
+
+#reviewFormHolder {
+  /* width: 60%; */
+}
+
+
 ol { 
   counter-reset: item;
   list-style-type: none;
@@ -9,7 +96,8 @@ ol {
 } */
 
 li:before { 
-  content: counter(item) "  "; 
+  font-family: 'Roboto Mono', monospace;
+  content: counter(item) ""; 
   counter-increment: item 
 }
 
@@ -27,6 +115,12 @@ li:before {
   background-color: #0A4C95;
 }
   
+input:focus::-webkit-input-placeholder { color:transparent; }
+input:focus:-moz-placeholder { color:transparent; } /* Firefox 18- */
+input:focus::-moz-placeholder { color:transparent; } /* Firefox 19+ */
+input:focus:-ms-input-placeholder { color:transparent; } /* oldIE ;) */
+
+
 body {
   /* background-color: #f8d047; */
   background-color:#000;
@@ -37,10 +131,12 @@ body {
 }
 
 #beer-add-new {
-  margin-top: 10px;
+  /* margin-top: 10px; */
+  display: inline-block;
 }
 
 .beer-btn {
+  font-family: Helvetica, Calibri, Arial, sans-serif;
   background-color: #f8d047;
   color:  #cd2b1d;
   border: 1px #cd2b1d solid;
@@ -50,6 +146,12 @@ body {
   outline: none;
   margin: 0px 1px;
   border-radius: 5px;
+  /* font-family: 'Didact Gothic', sans-serif; */
+}
+
+.beer-btn-bigger {
+  height: 1.5em;
+  font-size: 1em;
 }
 
 .beer-btn:hover {
@@ -96,14 +198,18 @@ body {
   clear: none;
 } */
 
+
+
 .beer-input {
   height: 1.5em;
   font-size: 1em;
-  font-family: 'UnifrakturMaguntia', cursive;
+  display: inline-block;
+  /* font-family: 'UnifrakturMaguntia', cursive; */
+  /* font-family: 'Germania One', cursive; */
   padding: 5px;
   margin: 5px;
-  color: white;
-  text-align: center;
+  color: #FFFFFF;
+  opacity: 1;
   border-radius: 5px;
   border: 1px #cd2b1d solid;
   text-shadow: none;
@@ -112,9 +218,15 @@ body {
 
 .beer-list-title {
   text-align: center;
-  font-family: 'UnifrakturMaguntia', cursive;
+  font-family: 'Germania One', cursive;
+  /* font-family: 'UnifrakturMaguntia', cursive; */
   margin: 2px auto;
-  font-size: 2em;
+  font-size: 1.5em;
+}
+
+#beer-review {
+  width: 100%;;
+  height: 200px;
 }
 
 #beers-tried, #beers-untried {
@@ -129,7 +241,9 @@ body {
   margin: auto;
   vertical-align: top;
   font-size: 1.2em;
+  line-height: 1.5em;
   padding: 10px;
+  font-family: 'Didact Gothic', sans-serif;
 }
 
 #beer-mug {
@@ -157,9 +271,8 @@ body {
   margin: auto;
   text-align: center;
   padding: 10px;
-  border: 8px black solid;
+  border: 4px black solid;
   border-top: none;
-
 }
 
 .delete-form {
@@ -179,17 +292,25 @@ body {
     transition: height 0.5s;
 }
 
+#everything {
+  /* border: 8px black solid; */
+  /* width: 784px; */
+  
+  /* display: inline-block; */
+  /* margin: auto; */
+}
+
 header {
   overflow: auto;
   text-align: center;
   width: 768px;
-  margin: auto;
   padding: 10px;
-  margin-top: 30px;
   /* color: firebrick; */
   background-color: #f8d047;
-  border: 8px black solid;
+  border: 4px black solid;
   border-bottom: none;
+  margin: auto;
+  margin-top: 30px;
 }
 
 header h1 {
@@ -203,7 +324,7 @@ header h1 {
 }
 
 header h2 {
-  font-family: 'UnifrakturMaguntia', cursive;
+  font-family: 'Germania One', cursive;
   font-size: 2em;
   margin-top: 0px;
   padding-top: 0px; 
@@ -228,3 +349,27 @@ ul {
   
 } */
 
+/* tooltip stuff */
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
