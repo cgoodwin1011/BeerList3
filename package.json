@@ -17,6 +17,7 @@
     "method-override": "^2.3.10",
     "mysql": "^2.15.0",
     "mysql2": "^1.5.3",
+    "nodemon": "^1.17.5",
     "orm": "^4.0.2",
     "sequelize": "^4.37.10"
   },
@@ -24,7 +25,7 @@
   "description": "## Life is too short and there are too many good beers to drink a bad one twice.",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cgoodwin1011/BeerList.git"
+    "url": "git+https://github.com/cgoodwin1011/BeerList3.git"
   },
   "bugs": {
     "url": "https://github.com/cgoodwin1011/BeerList/issues"

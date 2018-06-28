@@ -1,42 +1,53 @@
 <div id="this-page">
   <div class="col-holder">
-    {{!-- <div id="aesthic-box">
+    {{!--
+    <div id="aesthic-box">
       <br>
     </div> --}}
     <div id="col1" class="col">.</div>
     <div id="col2" class="col">
-      <h2>Bewerten Sie <span id="brewerbeer">dieses Bier</span> hier</h2>
+      <h2>Bewerten Sie dieses Bier hier</h2>
       <h3>(write your review here)</h3>
-      <div id="reviewFormHolder" class="form-holders">
-        {{!-- <form id="reivew-form" class="form-review" name="reviewForm" method="POST" action='reviewBeer'> --}}
-        <form id="reivew-form" class="form-review" name="reviewForm" method="POST" action="/reviewbeer" autocomplete="off">  
-          {{!-- beer_name, brewery, genre, abv, review, triedIt, rating, --}}
-          <div id="name-brewer" class="side-left">
-            {{!-- Name: --}}
-            <input id="beer-name" name="beerName"  class="beer-input" type="text" placeholder="type beer name here" value={{beername}}>
-            {{!-- Brewer: --}}
-            <input id="beer-brewery" name="beerBrewery"  class="beer-input" type="text" placeholder="brewery here" value={{brewer}}>
-          </div>
-          <div id="genre-abv" class='side-right'>
-            {{!-- Style: --}}
-            <input id="beer-genre" name="beerGenre"  class="beer-input" type="text" placeholder="style of beer">
-            {{!-- <br> abv: --}}
-            <input id="beer-abv" name="beerAbv"  class="beer-input" type="number" step="0.1" placeholder="alcohol by volume">
-          </div>
-          <div class="center-wide ">rating
-            <input id="beer-rating" name="beerRating"  class="beer-input" type="text">
-          </div>
-          <div>
-            <textarea id="beer-review" name="beerReview" class="beer-input"placeholder="Write your review here"></textarea>
-          </div>
-          <button id="submitBtn" type="submit" class="beer-btn beer-btn-bigger">Save Review</button>
-        </form>
+      <div id="review-form-holder" class="form-holders">
+        {{!--
+        <form id="reivew-form" class="form-review" name="reviewForm" method="POST" action='reviewBeer'> --}}
+          <form id="review-form" class="form-review" name="reviewForm" method="POST" action="/reviewbeer" autocomplete="off">
+            <div id="name-brewer" class="side-left">
+              {{!-- <h5>beer</h5> --}}
+              <input id="beer-name" name="beerName" class="beer-input" type="text" placeholder="type beer name here" value={{beername}}> {{!-- Brewer: --}}
+              
+              <input id="beer-brewery" name="beerBrewery" class="beer-input" type="text" placeholder="brewery here" value={{brewer}}>
+            </div>
+            <div id="genre-abv" class='side-right'>
+              {{!-- Style: --}}
+              <input id="beer-genre" name="beerGenre" class="beer-input" type="text" placeholder="style of beer"> {{!--
+              <br> abv: --}}
+              <input id="beer-abv" name="beerAbv" class="beer-input" type="number" step="0.1" placeholder="alcohol by volume">
+            </div>
+            <div class="center-wide "><h4 id="rating">rating</h4> {{!--
+              <input id="beer-rating" name="beerRating" class="beer-input" type="text">
+              <i class="fas fa-beer"></i>
+              <i class="fas fa-beer"></i>
+              <i class="fas fa-beer"></i>
+              <i class="fas fa-beer"></i>
+              <i class="fas fa-beer"></i> --}}
+              <div id="star_1" class="stars" data-starNum=1><i class="fas fa-beer"></i></div>
+              <div id="star_2" class="stars" data-starNum=2><i class="fas fa-beer"></i></div>
+              <div id="star_3" class="stars" data-starNum=3><i class="fas fa-beer"></i></div>
+              <div id="star_4" class="stars" data-starNum=4><i class="fas fa-beer"></i></div>
+              <div id="star_5" class="stars" data-starNum=5><i class="fas fa-beer"></i></div>
+            </div>
+            <div>
+              <textarea id="beer-review" name="beerReview" class="beer-input" placeholder="Write your review here"></textarea>
+            </div>
+            <button id="submitBtn" type="submit" class="beer-btn beer-btn-bigger">Save Review</button>
+          </form>
       </div>
     </div>
-  <div id="col3" class="col">.</div>
-  <div id="col4" class="col">.</div>
-  <div id="col5" class="col">.</div>
-  <div id="col6" class="col">.</div>
+    <div id="col3" class="col">.</div>
+    <div id="col4" class="col">.</div>
+    <div id="col5" class="col">.</div>
+    <div id="col6" class="col">.</div>
   </div>
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
     crossorigin="anonymous"></script>
@@ -50,5 +61,5 @@
       //console.log('got to submit button');
       //console.log(event);
       //});
-  </script> 
-  </div>
+  </script>
+</div>
